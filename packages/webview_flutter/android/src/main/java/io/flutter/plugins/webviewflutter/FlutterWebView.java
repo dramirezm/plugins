@@ -98,7 +98,8 @@ public class FlutterWebView implements PlatformView, MethodCallHandler {
     // Multi windows is set with FlutterWebChromeClient by default to handle internal bug: b/159892679.
     webView.getSettings().setSupportMultipleWindows(true);
     webView.setWebChromeClient(new FlutterWebChromeClient());
-
+    webView.getSettings().setBuiltInZoomControls(true);
+    webView.getSettings().setDisplayZoomControls(false);
     methodChannel = new MethodChannel(messenger, "plugins.flutter.io/webview_" + id);
     methodChannel.setMethodCallHandler(this);
 
